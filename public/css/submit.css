@@ -1,0 +1,312 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 1000px;
+  background-color: rgba(215, 215, 215, 1);
+  font: 12px "Arial Negreta",Arial;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.error{
+	color:red;
+}
+
+.header-container {
+  width: 1000px;
+  height: 175px;
+  background-color: #fff;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.header {
+  width: 960px;
+  height: 174px;
+  border-bottom: 1px solid #333;
+  margin: 0 auto;
+}
+
+.header .title {
+  float: left;
+  margin-top: 69.5px;
+  margin-left: 50px;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 32px;
+  font-family: 'Arial Negreta', 'Arial';
+  color: #1470BB;
+  white-space: nowrap;
+}
+
+.header .logo {
+  float: right;
+  margin-top: 60px;
+  margin-right: 25px;
+}
+
+.relative {
+  position: relative;
+}
+
+.content-container {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.content-container .content {
+  width: 850px;
+  height: 1930px;
+  margin: 0 auto;
+}
+
+.content-container .content .read-tips {
+  height: 100px;
+  font-size: 15px;
+  line-height: 25px;
+  padding-top: 25px;
+}
+
+.content-container .content .read-tips .title {
+  font-weight:700;
+  display: inline-block;
+}
+
+.content-container .content .read-tips .desc {
+  font-weight:400;
+  display: inline-block;
+}
+
+.content-container .content .basic {
+  padding-top: 25px;
+  font-size: 17px;
+}
+
+.content-container .content .basic .title{
+  font-size: 24px;
+  font-weight:700;
+  margin-bottom: 10px;
+}
+
+.content-container .require {
+  color: #FF6600;
+}
+
+.content-container .content .basic .info .info-row {
+  margin-top: 45px
+}
+
+.content-container .content .basic .info .info-row .info-row-title {
+  width: 85px;
+  display: inline-block;
+}
+
+.content-container .content .basic .info input {
+  width: 300px;
+  height: 35px;
+  margin-left: 15px;
+  font-size: 17px;
+}
+
+.content-container .content .basic .info .other-radio-input {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 80px;
+  height: 20px;
+  font-size: 16px;
+  margin-left: 0;
+}
+
+.content-container .content .basic .info .dist-select {
+  display: inline-block;
+}
+
+.content-container .content .basic .info select {
+  margin-left: 15px;
+  width: 100px;
+  height: 35px;
+  padding-left: 15px;
+}
+
+.content-container .content .basic .info .tip {
+  position: absolute;
+  margin-left: 105px;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.content-container .content .basic .info .input-radio {
+  width: auto;
+  height: auto;
+  margin-left: 15px;
+}
+
+.content-container .content .basic .info .margin-left-radio {
+  margin-left: 70px;
+}
+
+.content-container .content .basic .info .radio-span {
+  font-size: 13px;
+}
+
+.content-container .content .project {
+  padding-top: 25px;
+  font-size: 17px;
+  margin-top: 50px;
+}
+
+.content-container .content .project .title{
+  font-size: 24px;
+  font-weight:700;
+  margin-bottom: 10px;
+}
+
+.content-container .content .project .info .info-row {
+  margin-top: 45px
+}
+
+.content-container .content .project .info .info-row .info-row-title {
+  width: 86px;
+  display: inline-block;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+}
+
+.content-container .content .project .info input {
+  width: 700px;
+  height: 35px;
+  margin-left: 15px;
+  font-size: 17px;
+}
+
+.content-container .content .project .info .input-radio-row {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+}
+
+.content-container .content .project .info .input-radio {
+  width: auto;
+  height: auto;
+  margin-left: 15px;
+}
+
+.content-container .content .project .info .radio-span {
+  margin-right: 70px;
+  font-size: 13px;
+}
+
+.content-container .content .project .info textarea {
+  width: 700px;
+  height: 250px;
+  margin-left: 15px;
+  font-size: 17px;
+}
+
+.content-container .content .project .info .wordCount {
+  position: absolute;
+  right: 50px;
+  bottom: 15px;
+  font-size: 12px;
+}
+
+.content-container .content .plan {
+  padding-top: 25px;
+  font-size: 17px;
+  margin-top: 50px;
+}
+
+.content-container .content .plan .title{
+  font-size: 24px;
+  font-weight:700;
+  margin-bottom: 10px;
+}
+
+.content-container .content .plan .info .info-row .file {
+  position: relative;
+  display: inline-block;
+  background: #444;
+  border-radius: 5px;
+  padding: 10px 50px;
+  color: #fff;
+  text-decoration: none;
+}
+.content-container .content .plan .info .info-row .file input {
+  position: absolute;
+  font-size: 24px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  width: 168px;
+  height: 41px;
+}
+.content-container .content .plan .info .info-row .file:hover {
+  background:  #666;
+  border-color: #666;
+  color: #fff;
+  text-decoration: none;
+}
+
+.content-container .content .plan .select-file-btn{
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+.content-container .content .plan .info .info-row {
+  margin-top: 45px
+}
+
+.content-container .content .plan .info .info-row .info-row-title {
+  width: 85px;
+  display: inline-block;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+}
+
+.content-container .content .plan .info .info-row .input-capcha {
+  margin-left: 15px;
+  width: 140px;
+  height: 35px;
+  font-size: 17px;
+}
+
+.content-container .content .plan .info .info-row .capcha {
+  display: inline-block;
+  margin-top: -5px;
+  text-align: center;
+  width: 110px;
+  height: 30px;
+  margin-left: 30px;
+  line-height: 50px;
+  background: url(../img/capcha-bg.gif) no-repeat;
+  vertical-align: text-top;
+}
+
+.content-container .content .submit {
+  float: right;
+  margin-top: 50px;
+  padding: 12px 40px;
+  background-color: #0E6AB9;
+  border-color: #357ebd;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.content-container .content .showModal {
+  display: none;
+}
+
+.content-container .content .reveal-modal {
+  text-align: center;
+}

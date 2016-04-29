@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  section.section-partner-container
+    .section-partner
+      img(src="/img/partner.png")
+  script.
+    $(window).ready(function () {
+      $('.nav a').removeClass('active');
+      $('.nav a.partner').addClass('active');
+      function ifscreen(){
+        var windowHeight = $(window).height();
+        if(windowHeight < 925){
+          $('.section-partner-container').css('height', '580px');
+        }else{
+          $('.section-partner-container').css('height', (windowHeight - 345) +'px');
+        }
+      };
+      $(window).bind('resize',function(){
+        ifscreen();
+      });
+      ifscreen();
+    });
+    

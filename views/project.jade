@@ -1,0 +1,167 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title=title
+    meta(name="renderer", content="webkit")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    meta(http-equiv="Cache-Control", content="no-siteapp")
+    link(rel='stylesheet', href='/css/submit.css')
+    link(rel='stylesheet', href='/css/reveal.css')
+  body
+    div.header-container
+      div.header
+        div.title 合作项目申请表
+        div.logo
+          img(src="/img/logo.png")
+    section.content-container
+      div.content
+        div.read-tips
+          span.title 填写必读：
+          br
+          span.desc 1.观海资本专注于为创业者提供优秀的服务，包括融资、孵化等，欢迎有需求的项目共同合作;
+          span.desc 2.填写此表，请保持填写内容的真实性和专业性，提交并审核完成后，我们会有专业的人员与您联系。
+        form#projectForm(action="/project/submit", method="post")
+          div.basic
+            span.title 基本信息
+            div.info
+              div.info-row
+                div.info-row-title
+                  span.require *
+                  span 姓名：
+                input(type="text", name="name", id="name", required)
+              div.info-row
+                div.info-row-title
+                  span.require *
+                  span 手机：
+                input(type="text", name="phone", required)
+                div.tip
+                  span.tip-span 用于接收审核反馈结果，请注意查收
+              div.info-row
+                div.info-row-title
+                  span.require *
+                  span 微信：
+                input(type="text", name="wechat", required)
+                div.tip
+                  span.tip-span 工作人员可能通过微信跟你联系，请留意
+              div.info-row
+                div.info-row-title
+                  span.require *
+                  span 邮箱：
+                input(type="email", name="email", id="email", required)
+              div.info-row
+                div.info-row-title
+                  span.require *
+                  span 地区：
+                div.dist-select#dist-select
+                  select.prov(name="prov")
+                  select.city(name="city")
+              div.info-row
+                div.info-row-title
+                  span.require *
+                  span 需求：
+                input.input-radio(type="radio", name="require", value="孵化", checked)
+                span.radio-span 孵化
+                input.input-radio.margin-left-radio(type="radio", name="require", value="融资")
+                span.radio-span 融资
+                input.input-radio.margin-left-radio(type="radio", name="require", value="其他")
+                span.radio-span 其他
+                input.other-radio-input(type="text", name="other")
+          div.project
+            span.title 项目信息
+            div.info
+              div.info-row
+                div.info-row-title
+                  span.require *
+                  span 名称：
+                input(type="text", name="projectName", required)
+              div.info-row
+                div.info-row-title
+                  span.require *
+                  span 领域：
+                div.input-radio-row
+                  input.input-radio(type="radio", name="projectArea", value="TMT领域", checked)
+                  span.radio-span TMT领域
+                  input.input-radio(type="radio", name="projectArea", value="实体经济")
+                  span.radio-span 实体经济
+              div.info-row
+                div.info-row-title
+                  span 网站：
+                input(type="text", name="projectSite")
+              div.info-row
+                div.info-row-title
+                  span APP下载：
+                input(type="text", name="projectApp")
+              div.info-row
+                div.info-row-title
+                  span 公众号：
+                input(type="text", name="publicNum")
+              div.info-row.relative
+                div.info-row-title
+                  span.require *
+                  span 简介：
+                textarea#projectDesc(name="projectDesc", required)
+                span.wordCount
+                  span#leftWordCount 0 /1000
+          div.plan
+            span.title 商业计划书
+            div.info
+              div.info-row
+                a.file(href="javascript:;") 选择文件
+                  input(type="file", name="planFile")
+                p#fileName
+              div.info-row
+                div.info-row-title
+                  span.require *
+                  span 验证码：
+                input.input-capcha(type="text", name="capcha")
+                div.capcha
+                  img#capcha(src="/capcha")
+          input.submit#submit(type="submit")
+          a#showModal.showModal(href="#", data-reveal-id="myModal")
+        div#myModal.reveal-modal
+          h1 提交成功
+          p 我们会在3个工作日内反馈审核情况到您填写的手机号上！
+          button.close-reveal-modal 确定
+    script(type="text/javascript", src="/js/jquery-1.7.2.min.js")
+    script(type="text/javascript", src="/js/jquery.cityselect.js")
+    script(type="text/javascript", src="/js/jquery.reveal.js")
+    script(type="text/javascript", src="/js/jquery.validate.min.js")
+    script(type="text/javascript", src="/js/messages_zh.js")
+    script(type="text/javascript", src="/js/jquery.form.js")
+    script(type="text/javascript").
+      $(document).ready(function() {
+        $('#projectForm').validate();
+        // 项目简介字数统计
+        $("#projectDesc").keyup(function(){
+         var len = $(this).val().length;
+         if(len > 999){
+          $(this).val($(this).val().substring(0,1000));
+         }
+         $("#leftWordCount").text(len);
+        });
+        // 地区下拉选框默认赋值
+        $("#dist-select").citySelect({prov:"广东", city:"深圳"});
+  
+        // 上传文件名称
+        $(".file").on("change","input[type='file']",function(){
+          var filePath = $(this).val();
+          var arr = filePath.split('\\');
+          var fileName = arr[arr.length-1];
+          $("#fileName").html(fileName);
+        });
+  
+        $('#submit').click(function(e) {
+          e.preventDefault();
+          
+          $('#projectForm').ajaxSubmit(function(result) {
+            $('#showModal').trigger('click');
+          });
+        });
+  
+        $('#capcha').click(function() {
+          $.get('/capcha', function(data) {
+          });
+          $(this).attr('src', '../capcha');
+        });
+      });

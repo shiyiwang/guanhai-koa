@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  section.section-about-container
+    .section-about
+      .content-img
+        img(src="/img/about.jpg")
+      .content
+        .title 关于我们
+        .desc
+          ul
+            li 在投资行业方面，我们聚焦TMT等领域。
+            li 在投资偏好方面，我们偏重于中早期项目，但也会对突出价值的项目延伸投资。
+            li 在资源整合方面，我们已经跟多家平台已是战略合作伙伴关系。
+            li 在风险控制方面，我们开拓出独特的投资模式，成功避开高风险。
+            li 观海资本，是中国专业的投资机构和投资服务机构。
+            li 我们以创业者的心态、热情和专注度，立志成为卓越创业者背后的创业者。
+  script.
+    $(document).ready(function() {
+      $('.nav a').removeClass('active');
+      $('.nav a.about').addClass('active');
+      function ifscreen(){
+        var windowHeight = $(window).height();
+        if(windowHeight < 925){
+          $('.section-about-container').css('height', '580px');
+        }else{
+          $('.section-about-container').css('height', (windowHeight - 345) +'px');
+        }
+      };
+      $(window).bind('resize',function(){
+        ifscreen();
+      });
+      ifscreen();
+    });
+    

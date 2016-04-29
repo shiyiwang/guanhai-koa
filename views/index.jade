@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  .section-home
+    .mask
+    video.video(autoplay, loop, muted, webkit-playsinline="true")
+      source(src="http://news.yunipo.com/public/video/1.mp4", type='video/mp4')
+      source(src="http://news.yunipo.com/public/video/1.ogv", type='video/ogg')
+    .content-home
+      img(src="/img/homepage-focus-content.png")
+    a.project-btn(href="/project")
+      p.btn-desc 我有项目，寻求资源
+  script.
+    $(document).ready(function() {
+      $('.nav a').removeClass('active');
+      $('.nav a.index').addClass('active');
+      function ifscreen(){
+        var windowHeight = $(window).height();
+        var windowWidth = $(window).width();
+        if(windowHeight < 925){
+          $('.section-home').css('height', '580px');
+          $('.mask').css('height', '580px');
+          $('.content-home').css('margin-top', '170px');
+        }else{
+          $('.section-home').css('height', (windowHeight - 345) +'px');
+          $('.mask').css('height', (windowHeight - 345) +'px');
+          $('.content-home').css('margin-top', (windowHeight - 345) * 170 / 580 +'px');
+        }
+        if (windowHeight < windowWidth) {
+          $('.video').css('height', 'auto');
+          $('.video').css('width', '100%');
+        }else {
+          $('.video').css('height', '160%');
+          $('.video').css('width', 'auto');
+        }
+      };
+      $(window).bind('resize',function(){
+        ifscreen();
+      });
+      ifscreen();
+    });
+  

@@ -1,0 +1,75 @@
+extends layout
+
+block content
+  section.section-investment
+    .content-container
+      .content-title
+        span.title 投资案例
+        span.desc 自成立以来，观海资本已成功投资了70+的精品项目，</br>不乏有黄太吉、人人聚财、非梵酒店、三个爸爸等成功项目
+      .left-arrow
+      .right-arrow
+      .content-div
+        .content.r1
+          a(href="#")
+            img(src="/img/feifanjiudianguanli.png")
+          .item-title 非梵酒店管理公司
+          .item-desc 全球精品酒店</br>北大系精品项目
+        .content.r2
+          a(href="#")
+            img(src="/img/renrenjucai.png")
+          .item-title 人人聚财
+          .item-desc 国家A级</br>P2P3.0模式领军平台
+        .content.r3
+          a(href="#")
+            img(src="/img/huangtaiji.png")
+          .item-title 黄太吉
+          .item-desc 用新思维、新模式打造新式中国快餐</br>良心用好料，还原老味道
+        .content.r4
+          a(href="#")
+            img(src="/img/sangebaba.png")
+          .item-title 三个爸爸
+          .item-desc 抢占家用机器人大风口
+  script(type='text/javascript').
+    $(document).ready(function() {
+      var index = 0;
+      var contentData = [
+        {title: '非梵酒店管理公司', desc: '全球精品酒店</br>北大系精品项目', img: '../img/feifanjiudianguanli.png'},
+        {title: '人人聚财', desc: '国家A级</br>P2P3.0模式领军平台', img: '../img/renrenjucai.png'},
+        {title: '黄太吉', desc: '用新思维、新模式打造新式中国快餐</br>良心用好料，还原老味道', img: '../img/huangtaiji.png'},
+        {title: '三个爸爸', desc: '抢占家用机器人大风口', img: '../img/sangebaba.png'},
+        {title: '微+成长基金', desc: '聚焦微信产业链领军项目的</br>超级创投基金', img: '../img/weijiachengzhangjijin.png'},
+        {title: '连咖啡', desc: '移动互联网</br>专业咖啡快送服务商', img: '../img/liankafei.png'},
+        {title: '赚赚金融', desc: '让业务人员获得最大提成</br>人人都是“金融CEO”', img: '../img/zhuanzhuanjinrong.png'},
+        {title: '粉蓝医疗/华夏病理网', desc: '影响力居首的</br>医疗学术交互平台', img: '../img/fenlanyiliao.png'},
+      ];
+      $('.nav a').removeClass('active');
+      $('.nav a.investment').addClass('active');
+      $('.left-arrow').click(function() {
+        index = index === 0 ? 0 : (index - 1);
+        for (var i = 0; i < 4; i++) {
+          $('.content.r' + (i + 1)).find('img').attr('src',contentData[index + i].img);
+          $('.content.r' + (i + 1) + '>.item-title').text(contentData[index + i].title);
+          $('.content.r' + (i + 1) + '>.item-desc').html(contentData[index + i].desc);
+        }
+      });
+      $('.right-arrow').click(function() {
+        index = index === 4 ? 4 : (index + 1);
+        for (var i = 0; i < 4; i++) {
+          $('.content.r' + (i + 1)).find('img').attr('src',contentData[index + i].img);
+          $('.content.r' + (i + 1) + '>.item-title').text(contentData[index + i].title);
+          $('.content.r' + (i + 1) + '>.item-desc').html(contentData[index + i].desc);
+        }
+      });
+      function ifscreen(){
+        var windowHeight = $(window).height();
+        if(windowHeight < 925){
+          $('.section-investment').css('height', '580px');
+        }else{
+          $('.section-investment').css('height', (windowHeight - 345) +'px');
+        }
+      };
+      $(window).bind('resize',function(){
+        ifscreen();
+      });
+      ifscreen();
+    });
