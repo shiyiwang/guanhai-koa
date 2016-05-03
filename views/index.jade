@@ -3,7 +3,7 @@ extends layout
 block content
   .section-home
     .mask
-    video.video(autoplay, loop, muted, webkit-playsinline="true")
+    video.video(autoplay="autoplay", preload="none", controls="controls", webkit-playsinline="true", loop="true", poster="/img/movie.png")
       source(src="http://news.yunipo.com/public/video/1.mp4", type='video/mp4')
       source(src="http://news.yunipo.com/public/video/1.ogv", type='video/ogg')
     .content-home
@@ -38,5 +38,11 @@ block content
         ifscreen();
       });
       ifscreen();
+      $('.mask').click(function() {
+        $('.video')[0].play();
+      });
+      setTimeout(function() {
+        ifscreen();
+      }, 1000);
     });
   
